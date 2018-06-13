@@ -1,4 +1,4 @@
-FROM nginx:1.15
+FROM nginx:1.15-alpine
 
 LABEL \
     maintainer="emersonmx@gmail.com" \
@@ -11,5 +11,5 @@ LABEL \
 ARG LOCAL_USER_ID
 ARG LOCAL_GROUP_ID
 
-RUN groupadd -g ${LOCAL_GROUP_ID} ${LOCAL_USER:-dev} \
-    && useradd --shell /bin/bash -u ${LOCAL_USER_ID} -o -c "" -m ${LOCAL_USER:-dev} -g ${LOCAL_GROUP_ID}
+RUN addgroup -g ${LOCAL_GROUP_ID} dev \
+    && adduser -D -s /bin/sh -u ${LOCAL_USER_ID} -G dev dev
