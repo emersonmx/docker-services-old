@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  nginx:
+    build:
+      context: ./nginx
+      args:
+        - LOCAL_USER_ID=${LOCAL_USER_ID:-1000}
+        - LOCAL_GROUP_ID=${LOCAL_GROUP_ID:-1000}
+    ports:
+      - "${LOCAL_NGINX_PORT:-80}:80"
+    working_dir: /code
+    volumes:
+      - ${WEB_ROOT}:/code
+      - ./nginx/configs/conf.d:/etc/nginx/conf.d
+

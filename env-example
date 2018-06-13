@@ -1,0 +1,9 @@
+# Você pode obter os ids do usuário via terminal com o comando id.
+LOCAL_USER_ID=1000
+LOCAL_GROUP_ID=1000
+
+LOCAL_NGINX_PORT=80
+LOCAL_APACHE_PORT=80
+
+# Raiz da web. Defina o local onde está seus projetos ou use o padrão.
+WEB_ROOT=./webroot
