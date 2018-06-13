@@ -58,6 +58,6 @@ RUN \
 
 RUN sed -i 's/^\(user\|group\) = www-data/\1 = dev/' /usr/local/etc/php-fpm.d/www.conf
 
-EXPOSE 9001
-
 COPY php.ini /usr/local/etc/php/
+
+EXPOSE 9001
