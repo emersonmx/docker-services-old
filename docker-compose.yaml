@@ -12,7 +12,6 @@ services:
     working_dir: /code
     volumes:
       - ${WEB_ROOT}:/code
-      - ./nginx/configs/conf.d:/etc/nginx/conf.d
 
   pgsql:
     image: postgres:10-alpine
@@ -41,3 +40,13 @@ services:
       - "6379:6379"
     volumes:
       - ./redis/data:/data
+
+  php7:
+    build:
+      context: ./php7
+      args:
+        - LOCAL_USER_ID=${LOCAL_USER_ID:-1000}
+        - LOCAL_GROUP_ID=${LOCAL_GROUP_ID:-1000}
+    working_dir: /code
+    volumes:
+      - ${WEB_ROOT}:/code
