@@ -41,6 +41,16 @@ services:
     volumes:
       - ./redis/data:/data
 
+  php5:
+    build:
+      context: ./php5
+      args:
+        - LOCAL_USER_ID=${LOCAL_USER_ID:-1000}
+        - LOCAL_GROUP_ID=${LOCAL_GROUP_ID:-1000}
+    working_dir: /code
+    volumes:
+      - ${WEB_ROOT}:/code
+
   php7:
     build:
       context: ./php7
