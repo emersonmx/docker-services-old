@@ -50,3 +50,12 @@ services:
     working_dir: /code
     volumes:
       - ${WEB_ROOT}:/code
+
+  elastic:
+    image: docker.elastic.co/elasticsearch/elasticsearch:6.2.4
+    environment:
+      - "discovery.type=single-node"
+    ports:
+      - "9200:9200"
+    volumes:
+      - ./elastic/data:/usr/share/elasticsearch/data
