@@ -1,10 +1,9 @@
 #!/bin/bash
 
 project_path="$(dirname $(dirname $(realpath $0)))"
-project_name="$(basename $project_path)"
-service_path="$(dirname $(realpath $0))"
-service_name="$(basename $service_path)"
-container_name="${project_name}_${service_name}_1"
+source "$project_path/libs/helpers.sh"
+service_path="$(get_service_path $0)"
+container_name="$(get_container_name $0)"
 
 echo 'Updating configs...'
 docker cp "$service_path/nginx.conf" $container_name:/etc/nginx/
