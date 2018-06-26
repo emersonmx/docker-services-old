@@ -39,7 +39,6 @@ services:
   mariadb:
     image: mariadb:10
     environment:
-      - MYSQL_PASSWORD=secret
       - MYSQL_ROOT_PASSWORD=secret
     ports:
       - "3306:3306"
@@ -66,6 +65,16 @@ services:
   php7:
     build:
       context: ./php7
+      args:
+        - LOCAL_USER_ID=${LOCAL_USER_ID:-1000}
+        - LOCAL_GROUP_ID=${LOCAL_GROUP_ID:-1000}
+    working_dir: /code
+    volumes:
+      - ${WEB_ROOT}:/code
+
+  php71:
+    build:
+      context: ./php71
       args:
         - LOCAL_USER_ID=${LOCAL_USER_ID:-1000}
         - LOCAL_GROUP_ID=${LOCAL_GROUP_ID:-1000}
