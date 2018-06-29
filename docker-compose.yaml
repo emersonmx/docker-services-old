@@ -91,6 +91,14 @@ services:
     volumes:
       - ./elastic/data:/usr/share/elasticsearch/data
 
+  minio:
+    image: minio/minio
+    command: minio server /data
+    ports:
+      - "9000:9000"
+    volumes:
+      - ./minio/data:/data
+
   mailhog:
     image: mailhog/mailhog
     ports:
