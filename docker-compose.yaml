@@ -104,3 +104,11 @@ services:
     ports:
       - "1025:1025"
       - "8025:8025"
+
+  pgadmin:
+    image: dpage/pgadmin4
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=admin
+      - PGADMIN_DEFAULT_PASSWORD=secret
+    ports:
+      - "5050:80"
