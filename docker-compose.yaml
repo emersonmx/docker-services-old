@@ -112,3 +112,17 @@ services:
       - PGADMIN_DEFAULT_PASSWORD=secret
     ports:
       - "5050:80"
+
+  jupyter:
+    image: jupyter/tensorflow-notebook
+    environment:
+      - NB_USER=${NB_USER:-user}
+      - NB_UID=${NB_UID:-1000}
+      - NB_GID=${NB_GID:-1000}
+      - JUPYTER_ENABLE_LAB=${JUPYTER_ENABLE_LAB:-yes}
+    user: root
+    ports:
+      - "${LOCAL_JUPYTER_PORT:-8888}:8888"
+    working_dir: "/home/${NB_USER}"
+    volumes:
+      - "${LOCAL_JUPYTER_ROOT}:/home/${NB_USER}"
