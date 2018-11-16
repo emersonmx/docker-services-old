@@ -83,7 +83,7 @@ services:
       - ${WEB_ROOT}:/code
 
   elastic:
-    image: docker.elastic.co/elasticsearch/elasticsearch:6.2.4
+    image: docker.elastic.co/elasticsearch/elasticsearch:6.3.2
     environment:
       - "discovery.type=single-node"
     ports:
@@ -93,7 +93,7 @@ services:
       - ./elastic/data:/usr/share/elasticsearch/data
 
   kibana:
-    image: kibana:6.4.2
+    image: docker.elastic.co/kibana/kibana:6.3.2
     environment:
       - ELASTICSEARCH_URL=${ELASTICSEARCH_URL:-"http://elastic:9200"}
     ports:
