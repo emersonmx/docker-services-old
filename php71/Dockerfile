@@ -18,7 +18,7 @@ RUN apt-get update \
     && apt-get install -y \
         libfreetype6-dev libjpeg62-turbo-dev libpng-dev \
         libicu-dev zlib1g-dev postgresql-server-dev-9.6 \
-        libmagickwand-dev git vim locales \
+        libmagickwand-dev git vim locales unzip \
     && sed -i 's/^\#[ \t]*en_US\(.*\)/en_US\1/' /etc/locale.gen \
     && sed -i 's/^\#[ \t]*pt_\(.*\)/pt_\1/' /etc/locale.gen \
     && locale-gen \
