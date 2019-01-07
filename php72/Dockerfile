@@ -1,18 +1,10 @@
 FROM php:7.2-cli
 
-LABEL \
-    maintainer="emersonmx@gmail.com" \
-    name="emersonmx's PHP-CLI 7.2 image" \
-    image="php-7.2-cli" \
-    vendor="emersonmx" \
-    license="MIT" \
-    build-date="2018-01-31"
-
 RUN apt-get update \
     && apt-get install -y \
         libfreetype6-dev libjpeg62-turbo-dev libpng-dev \
         libicu-dev zlib1g-dev postgresql-server-dev-9.6 \
-        libmagickwand-dev git vim locales unzip \
+        libmagickwand-dev git locales unzip \
     && sed -i 's/^\#[ \t]*en_US\(.*\)/en_US\1/' /etc/locale.gen \
     && sed -i 's/^\#[ \t]*pt_\(.*\)/pt_\1/' /etc/locale.gen \
     && locale-gen \
@@ -49,8 +41,6 @@ RUN \
     curl -sS https://getcomposer.org/installer | php && \
     mv composer.phar /usr/local/bin/composer && \
     composer self-update
-
-COPY php.ini /usr/local/etc/php/
 
 VOLUME ["/code"]
 WORKDIR /code
