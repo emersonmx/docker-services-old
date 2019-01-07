@@ -6,4 +6,4 @@ PROJECT_DIR=$SCRIPT_DIR
 docker run --rm \
     --user $(id -u):$(id -g) \
     --volume $PROJECT_DIR:/code \
-    php-cs-fixer $@
+    emersonmx/php-cs-fixer $@
