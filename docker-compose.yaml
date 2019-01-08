@@ -120,6 +120,8 @@ services:
       - PGADMIN_DEFAULT_PASSWORD=secret
     ports:
       - "5050:80"
+    volumes:
+      - ./pgadmin/data:/var/lib/pgadmin
 
   jupyter:
     image: jupyter/tensorflow-notebook
