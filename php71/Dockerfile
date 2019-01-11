@@ -1,13 +1,5 @@
 FROM php:7.1-fpm
 
-LABEL \
-    maintainer="emersonmx@gmail.com" \
-    name="emersonmx's PHP-FPM 7.1 image" \
-    image="php-7.1-fpm" \
-    vendor="emersonmx" \
-    license="MIT" \
-    build-date="2018-01-31"
-
 ARG LOCAL_USER_ID
 ARG LOCAL_GROUP_ID
 

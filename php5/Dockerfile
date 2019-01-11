@@ -1,13 +1,5 @@
 FROM php:5.6-fpm
 
-LABEL \
-    maintainer="emersonmx@gmail.com" \
-    name="emersonmx's PHP-FPM 5.6 image" \
-    image="php-5.6-fpm" \
-    vendor="emersonmx" \
-    license="MIT" \
-    build-date="2017-08-26"
-
 ARG LOCAL_USER_ID
 ARG LOCAL_GROUP_ID
 

@@ -1,13 +1,5 @@
 FROM php:7.2-alpine
 
-LABEL \
-    maintainer="emersonmx@gmail.com" \
-    name="emersonmx's php-cs-fixer image" \
-    image="php-7.2-alpine" \
-    vendor="emersonmx" \
-    license="MIT" \
-    build-date="2019-01-04"
-
 ENV PHP_CS_FIXER_VERSION=2.13.3
 
 RUN curl -L https://github.com/FriendsOfPHP/PHP-CS-Fixer/releases/download/v$PHP_CS_FIXER_VERSION/php-cs-fixer.phar > /usr/local/bin/php-cs-fixer \
